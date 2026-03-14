@@ -1,0 +1,57 @@
+{
+	"info": {
+		"name": "React ToDo API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get All Todos",
+			"request": {
+				"method": "GET",
+				"url": {
+					"raw": "http://localhost:3000/todos",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "3000",
+					"path": ["todos"]
+				}
+			}
+		},
+		{
+			"name": "Get Single Todo",
+			"request": {
+				"method": "GET",
+				"url": {
+					"raw": "http://localhost:3000/todos/:id",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "3000",
+					"path": ["todos", ":id"]
+				}
+			}
+		},
+		{
+			"name": "Create Todo",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"title\": \"Test Todo\",\n  \"isCompleted\": false\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/todos",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "3000",
+					"path": ["todos"]
+				}
+			}
+		}
+	]
+}

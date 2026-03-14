@@ -1,13 +1,19 @@
+import dotenv from "dotenv";
+dotenv.config();
 import express from "express";
 import { connectDB } from "./db/connectDB";
+import todoRouter from "./routes/todo.routes";
 
 const app = express();
 const port = process.env.PORT || 3000;
 
-app.get("/", (req, res) => {
-	res.send("Welcome to the React-ToDo App!");
-});
+// middleware
+app.use(express.json()); // allow json body from request
 
+// todo routes
+app.use("/api/v1/todos", todoRouter);
+
+// start the DB and server
 const startServer = async () => {
 	try {
 		await connectDB();
