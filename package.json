@@ -6,8 +6,8 @@
 		"server"
 	],
 	"scripts": {
-		"start:client": "npm --workspace client run dev",
-		"start:server": "npm --workspace server run dev",
-		"start": "npm run start:client & npm run start:server"
+		"dev:client": "npm --workspace client run dev",
+		"dev:server": "npm --workspace server run dev",
+		"start": "npm run dev:client & npm run dev:server"
 	}
 }
