@@ -1,0 +1,47 @@
+# Standard Node/React/TypeScript .gitignore
+# Node
+node_modules/
+dist/
+build/
+.env
+npm-debug.log
+yarn-error.log
+
+# Logs
+logs/
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# TypeScript
+*.tsbuildinfo
+
+# Vite
+.vite/
+
+# Misc
+.idea/
+.vscode/
+
+# Coverage
+coverage/
+
+# React
+public/
+
+# Ignore local files
+*.local
+
+# Ignore test output
+*.test.js
+*.test.ts
+*.test.tsx
+
+# Ignore server output
+server/dist/
+
+# Ignore client output
+client/dist/
+client/build/
