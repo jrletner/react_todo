@@ -1,13 +1,11 @@
-import dotEnv from "dotenv";
-dotEnv.config();
 import express from "express";
-import connectDB from "./db/connect";
+import { connectDB } from "./db/connectDB";
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 app.get("/", (req, res) => {
-	res.send("Hello from Express + TypeScript!");
+	res.send("Welcome to the React-ToDo App!");
 });
 
 const startServer = async () => {
