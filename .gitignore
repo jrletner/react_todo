@@ -1,4 +1,3 @@
-# Standard Node/React/TypeScript .gitignore
 # Node
 node_modules/
 dist/
