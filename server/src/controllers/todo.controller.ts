@@ -12,8 +12,9 @@ export const getAllTodosController = (req: Request, res: Response) =>
 	getAllTodos(req, res);
 
 // get single todo
-export const getSingleTodoController = (req: Request, res: Response) =>
+export const getSingleTodoController = (req: Request, res: Response) => {
 	getSingleTodo(req, res);
+};
 
 // create todo
 export const createTodoController = (req: Request, res: Response) => {

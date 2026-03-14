@@ -9,11 +9,11 @@
 			"request": {
 				"method": "GET",
 				"url": {
-					"raw": "http://localhost:3000/todos",
+					"raw": "http://localhost:3000/api/v1/todos",
 					"protocol": "http",
 					"host": ["localhost"],
 					"port": "3000",
-					"path": ["todos"]
+					"path": ["api", "v1", "todos"]
 				}
 			}
 		},
@@ -22,11 +22,11 @@
 			"request": {
 				"method": "GET",
 				"url": {
-					"raw": "http://localhost:3000/todos/:id",
+					"raw": "http://localhost:3000/api/v1/todos/:id",
 					"protocol": "http",
 					"host": ["localhost"],
 					"port": "3000",
-					"path": ["todos", ":id"]
+					"path": ["api", "v1", "todos", ":id"]
 				}
 			}
 		},
@@ -45,11 +45,47 @@
 					"raw": "{\n  \"title\": \"Test Todo\",\n  \"isCompleted\": false\n}"
 				},
 				"url": {
-					"raw": "http://localhost:3000/todos",
+					"raw": "http://localhost:3000/api/v1/todos",
 					"protocol": "http",
 					"host": ["localhost"],
 					"port": "3000",
-					"path": ["todos"]
+					"path": ["api", "v1", "todos"]
+				}
+			}
+		},
+		{
+			"name": "Update Todo",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"title\": \"Updated Todo\",\n  \"isCompleted\": true\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/todos/:id",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "3000",
+					"path": ["api", "v1", "todos", ":id"]
+				}
+			}
+		},
+		{
+			"name": "Delete Todo",
+			"request": {
+				"method": "DELETE",
+				"url": {
+					"raw": "http://localhost:3000/api/v1/todos/:id",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "3000",
+					"path": ["api", "v1", "todos", ":id"]
 				}
 			}
 		}

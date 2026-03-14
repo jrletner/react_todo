@@ -7,6 +7,7 @@ import { Request, Response } from "express";
 interface GetAllTodosResponse {
 	success: boolean;
 	payload: ITodo[] | string;
+	length: number;
 }
 
 // Get single todo interface
@@ -44,11 +45,14 @@ export const getAllTodos = async (
 ) => {
 	try {
 		const todos = await Todo.find({});
-		res.status(200).json({ success: true, payload: todos });
+		res
+			.status(200)
+			.json({ success: true, length: todos.length, payload: todos });
 	} catch (error) {
 		const errMsg = error instanceof Error ? error.message : "Unknown error";
 		res.status(500).json({
 			success: false,
+			length: 0,
 			payload: errMsg,
 		});
 	}
