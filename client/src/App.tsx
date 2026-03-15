@@ -53,6 +53,7 @@ function App() {
 						<ul className='space-y-4'>
 							{todos.map((t: Todo) => (
 								<TodoList
+									key={t._id}
 									id={t._id}
 									isCompleted={t.isCompleted}
 									title={t.title}
