@@ -5,6 +5,7 @@ export async function handleCreate(
 	setTodos: React.Dispatch<React.SetStateAction<any[]>>,
 ) {
 	try {
+		if (!todo) return;
 		const res = await fetch(`${apiUrl}/todos`, {
 			method: "POST",
 			headers: {

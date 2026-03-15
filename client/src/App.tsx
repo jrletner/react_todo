@@ -56,14 +56,19 @@ function App() {
 								onClick={() => {
 									setCreateMode(false);
 									handleCreate(newTodoValue, apiUrl, setTodos);
+									setNewTodoValue(null);
 								}}
-								className='flex items-center justify-center w-8 h-8 rounded hover:bg-green-100 transition text-green-600 text-xl focus:outline-none focus:ring-2 focus:ring-green-300'
-								title='Save'>
+									className={`flex items-center justify-center w-8 h-8 rounded hover:bg-green-100 transition text-green-600 text-xl focus:outline-none focus:ring-2 focus:ring-green-300 ${(!newTodoValue || newTodoValue.trim() === "") ? "opacity-50 cursor-not-allowed" : ""}`}
+									title='Save'
+									disabled={!newTodoValue || newTodoValue.trim() === ""}>
 								<LuSave />
 							</button>
 							<button
-								onClick={() => setCreateMode(false)}
-								className='flex items-center justify-center w-8 h-8 rounded hover:bg-red-200 transition text-gray-600 text-xl focus:outline-none focus:ring-2 focus:ring-gray-400'
+								onClick={() => {
+									setCreateMode(false);
+									setNewTodoValue(null);
+								}}
+								className='flex items-center justify-center w-8 h-8 rounded hover:bg-red-100 transition text-red-600 text-xl focus:outline-none focus:ring-2 focus:ring-red-300'
 								title='Cancel'>
 								<LuX />
 							</button>
