@@ -104,7 +104,7 @@ export const updateTodo = async (
 				.status(404)
 				.json({ success: false, payload: "Todo not found" });
 		const todo = await Todo.findByIdAndUpdate(id, req.body, {
-			new: true,
+			returnDocument: 'after',
 			runValidators: true,
 		});
 		res.status(200).json({ success: true, payload: todo, prevTodo: prevTodo });
