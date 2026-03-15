@@ -152,7 +152,37 @@ npm run dev:server
 
 ## License
 
-MIT
+---
+
+## Postman Collection
+
+To help you test the API endpoints quickly and reliably, a Postman collection is included in the server directory:
+
+- Path: `server/todo.postman_collection.json`
+
+### What is it?
+
+The Postman collection contains pre-configured requests for all CRUD operations on the Todo API:
+
+- **Get All Todos**: Fetches all todo items.
+- **Get Single Todo**: Fetches a specific todo by its ID.
+- **Create Todo**: Adds a new todo (requires a JSON body with `title` and `isCompleted`).
+- **Update Todo**: Updates an existing todo by ID (requires a JSON body).
+- **Delete Todo**: Deletes a todo by ID.
+
+### How to Use
+
+1. Open [Postman](https://www.postman.com/downloads/) (desktop or web).
+2. Import the collection file:
+
+- Click "Import" and select `server/todo.postman_collection.json`.
+
+3. Set up your local server (see setup instructions above).
+4. Use the collection to send requests to `http://localhost:3000/api/v1/todos`.
+
+- You can modify request bodies and parameters as needed.
+
+This collection is useful for manual testing, debugging, and verifying your API without writing extra code or scripts.
 
 ---
 
