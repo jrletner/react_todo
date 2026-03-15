@@ -1,12 +1,13 @@
 # React Todo Monorepo
 
-This project is a full-stack Todo application built with a monorepo structure, featuring a React client and a Node.js/Express server. The client uses Vite, TypeScript, and Tailwind CSS for a modern, fast, and responsive UI. The server provides a RESTful API for managing todos.
+This project is a full-stack Todo application built with a monorepo structure, featuring a React client and a Node.js/Express server backed by MongoDB. The client uses Vite, TypeScript, and Tailwind CSS for a modern, fast, and responsive UI. The server provides a RESTful API for managing todos, with MongoDB as the database.
 
 ## Features
 
 - Add, edit, complete, and delete todos
 - Modular React components with type-safe props
 - REST API with CRUD operations
+- Backend powered by MongoDB
 - Type safety throughout the server (Node.js/Express with TypeScript)
 - Helper functions for clean code separation
 - Tailwind CSS for styling
@@ -38,6 +39,11 @@ cd react_todo
 ### 2. Configure Environment Variables
 
 - Copy `.env.example` to `.env` in the `client` folder and update as needed.
+- In the `server` folder, create a `.env` file and set your MongoDB connection string:
+
+```
+MONGODB_URI=your_mongodb_connection_string
+```
 
 ### 3. Install Dependencies
 
