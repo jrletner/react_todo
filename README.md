@@ -7,6 +7,7 @@ This project is a full-stack Todo application built with a monorepo structure, f
 - Add, edit, complete, and delete todos
 - Modular React components with type-safe props
 - REST API with CRUD operations
+- Type safety throughout the server (Node.js/Express with TypeScript)
 - Helper functions for clean code separation
 - Tailwind CSS for styling
 - Environment variable support for easy configuration
