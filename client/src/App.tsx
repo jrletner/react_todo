@@ -6,6 +6,7 @@ import {
 	handleCreate,
 } from "./helpers/helperFunctions";
 import { MdDelete, MdEdit, MdCheck, MdClose, MdAdd } from "react-icons/md";
+import { LuSave, LuX } from "react-icons/lu";
 
 function App() {
 	const apiUrl = import.meta.env.VITE_SERVER_URI;
@@ -32,74 +33,48 @@ function App() {
 				<h2 className='text-2xl font-bold mb-6 text-center text-blue-600'>
 					Todo List
 				</h2>
-				<button
-					onClick={() => setCreateMode(true)}
-					className='w-full mb-6 flex items-center justify-center gap-2 px-4 py-3 rounded-lg bg-blue-500 text-white font-bold text-lg hover:bg-blue-600 transition focus:outline-none focus:ring-2 focus:ring-blue-300'
-					title='Add New Todo'>
-					<MdAdd size={24} />
-					Add New Todo
-				</button>
+				{!createMode && (
+					<button
+						onClick={() => setCreateMode(true)}
+						className='w-full mb-6 flex items-center justify-center gap-2 px-4 py-3 rounded-lg bg-blue-500 text-white font-bold text-lg hover:bg-blue-600 transition focus:outline-none focus:ring-2 focus:ring-blue-300'
+						title='Add New Todo'>
+						<MdAdd size={24} />
+						Add New Todo
+					</button>
+				)}
+				{createMode && (
+					<div className='mb-6 bg-blue-50 rounded-lg p-4'>
+						<p className='mb-2 font-semibold text-blue-600'>Add new todo</p>
+						<input
+							type='text'
+							onChange={(e) => setNewTodoValue(e.target.value)}
+							className='border border-blue-300 rounded-lg px-5 py-3 text-xl mb-2 focus:outline-none focus:ring-2 focus:ring-blue-400 bg-white w-full transition'
+							autoFocus
+						/>
+						<div className='flex gap-2'>
+							<button
+								onClick={() => {
+									setCreateMode(false);
+									handleCreate(newTodoValue, apiUrl, setTodos);
+								}}
+								className='flex items-center justify-center w-8 h-8 rounded hover:bg-green-100 transition text-green-600 text-xl focus:outline-none focus:ring-2 focus:ring-green-300'
+								title='Save'>
+								<LuSave />
+							</button>
+							<button
+								onClick={() => setCreateMode(false)}
+								className='flex items-center justify-center w-8 h-8 rounded hover:bg-red-200 transition text-gray-600 text-xl focus:outline-none focus:ring-2 focus:ring-gray-400'
+								title='Cancel'>
+								<LuX />
+							</button>
+						</div>
+					</div>
+				)}
 				{todos.length === 0 ?
 					<>
 						<p className='text-gray-500 text-center'>No todos found.</p>
-						{createMode && (
-							<>
-								<p className='mb-2 font-semibold text-blue-600'>Add new todo</p>
-								<input
-									type='text'
-									onChange={(e) => setNewTodoValue(e.target.value)}
-									className='border border-blue-300 rounded-lg px-5 py-3 text-xl mb-2 focus:outline-none focus:ring-2 focus:ring-blue-400 bg-white w-full transition'
-									autoFocus
-								/>
-								<div className='flex gap-2'>
-									<button
-										onClick={() => {
-											setCreateMode(false);
-											handleCreate(newTodoValue, apiUrl, setTodos);
-										}}
-										className='flex items-center justify-center w-8 h-8 rounded hover:bg-green-100 transition text-green-600 text-xl focus:outline-none focus:ring-2 focus:ring-green-300'
-										title='Save'>
-										<MdCheck />
-									</button>
-									<button
-										onClick={() => setCreateMode(false)}
-										className='flex items-center justify-center w-8 h-8 rounded hover:bg-gray-200 transition text-gray-600 text-xl focus:outline-none focus:ring-2 focus:ring-gray-400'
-										title='Cancel'>
-										<MdClose />
-									</button>
-								</div>
-							</>
-						)}
 					</>
 				:	<>
-						{createMode && (
-							<div className='mb-6 bg-blue-50 rounded-lg p-4'>
-								<p className='mb-2 font-semibold text-blue-600'>Add new todo</p>
-								<input
-									type='text'
-									onChange={(e) => setNewTodoValue(e.target.value)}
-									className='border border-blue-300 rounded-lg px-5 py-3 text-xl mb-2 focus:outline-none focus:ring-2 focus:ring-blue-400 bg-white w-full transition'
-									autoFocus
-								/>
-								<div className='flex gap-2'>
-									<button
-										onClick={() => {
-											setCreateMode(false);
-											handleCreate(newTodoValue, apiUrl, setTodos);
-										}}
-										className='flex items-center justify-center w-8 h-8 rounded hover:bg-green-100 transition text-green-600 text-xl focus:outline-none focus:ring-2 focus:ring-green-300'
-										title='Save'>
-										<MdCheck />
-									</button>
-									<button
-										onClick={() => setCreateMode(false)}
-										className='flex items-center justify-center w-8 h-8 rounded hover:bg-gray-200 transition text-gray-600 text-xl focus:outline-none focus:ring-2 focus:ring-gray-400'
-										title='Cancel'>
-										<MdClose />
-									</button>
-								</div>
-							</div>
-						)}
 						<ul className='space-y-4'>
 							{todos.map((t: Todo) => (
 								<li
