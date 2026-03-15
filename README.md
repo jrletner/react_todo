@@ -47,6 +47,14 @@ MONGODB_URI=your_mongodb_connection_string
 
 ### 3. Install Dependencies
 
+First, install dependencies in the parent directory to set up the workspaces:
+
+```
+npm install
+```
+
+Then install dependencies for each workspace:
+
 #### Client
 
 ```
