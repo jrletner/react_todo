@@ -56,17 +56,47 @@ npm install
 
 ### 4. Start the Application
 
-#### Start the Server
+You can run both the client and server from the parent folder using two terminals:
+
+#### Option 1: Separate Terminals
+
+Open two terminal windows/tabs:
+
+**Terminal 1 (Server):**
 
 ```
 cd server
 npm run dev
 ```
 
-#### Start the Client
+**Terminal 2 (Client):**
 
 ```
-cd ../client
+cd client
+npm run dev
+```
+
+#### Option 2: Concurrently (with npm package)
+
+You can use the `concurrently` npm package to run both client and server with a single command:
+
+1. Install concurrently in the parent folder:
+
+```
+npm install --save-dev concurrently
+```
+
+2. Add this script to your parent `package.json`:
+
+```
+	"scripts": {
+		"dev": "concurrently \"npm run dev --prefix server\" \"npm run dev --prefix client\""
+	}
+```
+
+3. Run both:
+
+```
 npm run dev
 ```
 
