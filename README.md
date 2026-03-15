@@ -139,7 +139,8 @@ npm run dev:server
 
 ## API Endpoints
 
-- `GET /api/v1/todos` — List todos
+- `GET /api/v1/todos` — Get all todos
+- `GET /api/v1/todos/:id` — Get a single todo
 - `POST /api/v1/todos` — Create todo
 - `PUT /api/v1/todos/:id` — Edit/complete todo
 - `DELETE /api/v1/todos/:id` — Delete todo
